@@ -3449,12 +3449,12 @@ document.addEventListener("click", function(e){
     var el = els[i], tag = el.tagName.toLowerCase();
     if (tag === "button" || tag === "a" || el.closest("svg") || el.closest(".navlist")){ continue; }
     el.setAttribute("tabindex","0");
-    el.setAttribute("role","link");
+    if (tag !== "li"){ el.setAttribute("role","link"); }
   }
   document.addEventListener("keydown", function(e){
     if (e.key !== "Enter" && e.key !== " "){ return; }
     var t = e.target;
-    if (!t || !t.getAttribute || t.getAttribute("role") !== "link" || !t.hasAttribute("data-target")){ return; }
+    if (!t || !t.getAttribute || !(t.getAttribute("role") === "link" || t.tagName === "LI") || !t.hasAttribute("data-target")){ return; }
     e.preventDefault();
     go(t.getAttribute("data-target"));
   });
