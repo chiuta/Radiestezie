@@ -4,6 +4,8 @@ Curs offline despre radiestezie (pendul, baghete, geobiologie), într-un singur 
 
 **Live:** https://chiuta.github.io/Radiestezie/
 
+Ultima actualizare: 11 octombrie 2026
+
 ![Captura de ecran](screenshot.png)
 
 ## Ce este
@@ -51,6 +53,11 @@ Verificate în cod și în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
+
+## Istoric / Changelog
+
+### 11.10.2026 — 11 octombrie 2026
+- Accesibilitate: avertismentul de subsol nu mai este un reper contentinfo imbricat în main (devine notă); verificare axe fără încălcări.
 
 ## Licență
 
