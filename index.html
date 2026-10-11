@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-2KdtQUT9D4YRjMoJDLki5NwXiV5zrQHYyzhdpoD6G9A='; style-src 'unsafe-inline'; img-src data:; manifest-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-k0GZfuUVym22hL9BEp6b2EHtq8y25UdJPpjv/TouwNY='; style-src 'unsafe-inline'; img-src data:; manifest-src data:; base-uri 'none'; form-action 'none'">
 <meta name="description" content="Curs offline despre radiestezie în 18 niveluri, cu context internațional, glosar și jurnal de practică. Material educativ: radiestezia nu are validare științifică.">
 <meta property="og:title" content="Radiestezia — Curs în 18 Niveluri">
 <meta property="og:description" content="Curs offline despre radiestezie, prezentat onest: tradiție și exercițiu de atenție, fără validare științifică.">
@@ -770,7 +770,7 @@ main:focus,.level-title:focus,.view h1:focus{outline:none;}
     </div>
   </details>
 
-  <div class="pagefoot">Aplicație offline, într-un singur fișier HTML — fără conexiune la internet, fără cont, fără colectare de date. Notițele din jurnal există doar în memoria paginii cât timp o ai deschisă; folosește „Descarcă jurnalul" ca să le păstrezi.</div>
+  <div class="pagefoot">Aplicație offline, într-un singur fișier HTML — fără conexiune la internet, fără cont, fără colectare de date. Notițele din jurnal există doar în memoria paginii cât timp o ai deschisă (afară de cazul în care bifezi tu păstrarea în browser, în secțiunea Jurnal); folosește „Descarcă jurnalul" ca să le păstrezi.</div>
 </div>
 </section>
 
@@ -2887,11 +2887,12 @@ main:focus,.level-title:focus,.view h1:focus{outline:none;}
 <div class="wrap">
 <div class="level-kicker">JURNALUL TĂU</div>
 <h1 class="level-title">Jurnalul meu de practică</h1>
-<p class="level-sub">O intrare pentru fiecare nivel. Notițele există doar cât ai pagina deschisă — descarcă-le periodic ca să nu le pierzi.</p>
+<p class="level-sub">O intrare pentru fiecare nivel. Implicit, notițele există doar cât ai pagina deschisă — descarcă-le periodic ca să nu le pierzi (sau bifează mai jos păstrarea în browser).</p>
 
 <div class="callout note">
   <span class="lbl">CUM FUNCȚIONEAZĂ</span>
-  <p>Această aplicație nu salvează nimic pe internet și nu folosește memoria browserului — tot ce scrii aici trăiește doar în pagina deschisă, cât timp n-o închizi sau n-o reîncarci. Apasă „Descarcă jurnalul" oricând vrei să păstrezi notițele într-un fișier text, pe calculatorul tău.</p>
+  <p>Această aplicație nu salvează nimic pe internet. Implicit nu folosește nici memoria browserului — tot ce scrii aici trăiește doar în pagina deschisă, cât timp n-o închizi sau n-o reîncarci. Apasă „Descarcă jurnalul" oricând vrei să păstrezi notițele într-un fișier text, pe calculatorul tău.</p>
+  <p><label><input type="checkbox" id="toggleKeep"> Păstrează jurnalul și bifele în acest browser (opțional)</label><br><span id="keepNote" style="font-size:.85rem;">Dezactivat. Dacă îl activezi, notițele și bifele se salvează automat în stocarea locală a acestui browser, <strong>necriptat</strong> — nu folosi opțiunea pe un calculator comun. Debifarea șterge copia salvată.</span></p>
 </div>
 
 <div class="journal-actions">
@@ -3545,7 +3546,20 @@ document.addEventListener("keydown", function(e){
     resultEl.innerHTML = "<div class=\"callout def\"><span class=\"lbl\">Rezultatul tău</span><p>Chiar ținând telefonul cât mai nemișcat posibil, senzorul a înregistrat o variație medie de <strong>" + avgVal.toFixed(3) + " m/s\u00b2</strong> și un vârf de <strong>" + maxVal.toFixed(3) + " m/s\u00b2</strong> față de media propriilor tale măsurători — mișcări involuntare, reale, pe care nu le simți conștient. Exact acest tip de micro-mișcare, amplificat de un pendul sau de baghete, explică fenomenul studiat în acest curs.</p></div>";
   }
 
+  /* Fără senzor de mișcare (desktop etc.): trece automat la varianta cu cursorul sau degetul, cu un mesaj clar. */
+  var runId = 0;
+  function fallbackToPointer(reason){
+    var pb = document.getElementById("startPointerTest");
+    if (pb && !pb.disabled){
+      pb.click();
+      resultEl.innerHTML = "<p style=\"font-size:.88rem;color:var(--ink-faint);\">" + reason + " Am pornit în locul lui varianta cu cursorul sau degetul — urmează instrucțiunea de mai sus.</p>";
+    } else {
+      resultEl.innerHTML = "<p style=\"font-size:.88rem;color:var(--ink-faint);\">" + reason + "</p>";
+    }
+  }
+
   function runTest(){
+    var myRun = ++runId;
     samples = [];
     baseline = null;
     gotAnySample = false;
@@ -3557,7 +3571,14 @@ document.addEventListener("keydown", function(e){
     startBtn.disabled = true;
     handler = onMotion;
     window.addEventListener("devicemotion", handler);
-    setTimeout(function(){ if (handler){ stopTest(); } }, DURATION + 150);
+    setTimeout(function(){
+      if (myRun !== runId || !handler || gotAnySample){ return; }
+      // niciun eșantion după 2 secunde: senzorul nu există sau nu e accesibil
+      window.removeEventListener("devicemotion", handler); handler = null;
+      startBtn.disabled = false; area.style.display = "none"; statusEl.textContent = "";
+      fallbackToPointer("Senzorul de mișcare nu a trimis date (de obicei, desktop sau permisiune lipsă).");
+    }, 2000);
+    setTimeout(function(){ if (myRun === runId && handler){ stopTest(); } }, DURATION + 150);
   }
 
   /* Variantă fără senzori: deplasările involuntare ale cursorului/degetului față de punctul de pornire, 8 secunde */
@@ -3605,7 +3626,7 @@ document.addEventListener("keydown", function(e){
 
   startBtn.addEventListener("click", function(){
     if (typeof DeviceMotionEvent === "undefined"){
-      resultEl.innerHTML = "<p style=\"font-size:.88rem;color:var(--ink-faint);\">Senzorul de mișcare nu pare disponibil pe acest dispozitiv — testul funcționează pe telefon, nu pe desktop.</p>";
+      fallbackToPointer("Senzorul de mișcare nu pare disponibil pe acest dispozitiv (testul cu telefonul funcționează pe telefon, nu pe desktop).");
       return;
     }
     if (typeof DeviceMotionEvent.requestPermission === "function"){
@@ -3832,6 +3853,8 @@ var exportMd = document.getElementById("exportJournalMd");
 if (exportMd){ exportMd.addEventListener("click", function(){ exportJournal("md"); }); }
 
 window.addEventListener("beforeunload", function(e){
+  var keepBox = document.getElementById("toggleKeep");
+  if (keepBox && keepBox.checked){ return; }
   var tas = document.querySelectorAll("#journalEntries textarea");
   for (var i=0;i<tas.length;i++){
     if (tas[i].value && tas[i].value.trim().length){ e.preventDefault(); e.returnValue = ""; return ""; }
@@ -3844,6 +3867,61 @@ document.getElementById("clearJournal").addEventListener("click", function(){
     for (var i=0;i<textareas.length;i++){ textareas[i].value = ""; }
   }
 });
+
+/* ---------- păstrare opțională a jurnalului și a bifelor (implicit dezactivată; necriptat) ---------- */
+(function(){
+  var toggle = document.getElementById("toggleKeep"), note = document.getElementById("keepNote");
+  if (!toggle){ return; }
+  var FLAG = "radiestezie.pastrare", DATA = "radiestezie.date.v1";
+  var on = false, timer = null;
+  function lsGet(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } }
+  function lsSet(k, v){ try { window.localStorage.setItem(k, v); return true; } catch(e){ return false; } }
+  function lsDel(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  function setNote(active){
+    if (!note){ return; }
+    note.innerHTML = active
+      ? "Activat: notițele și bifele se salvează automat în stocarea locală a acestui browser, <strong>necriptat</strong>. Debifează caseta ca să ștergi copia salvată."
+      : "Dezactivat. Dacă îl activezi, notițele și bifele se salvează automat în stocarea locală a acestui browser, <strong>necriptat</strong> — nu folosi opțiunea pe un calculator comun. Debifarea șterge copia salvată.";
+  }
+  function collect(){
+    var j = {}, c = [], tas = document.querySelectorAll("#journalEntries textarea"), cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
+    for (var i=0;i<tas.length;i++){ if (tas[i].value){ j[tas[i].getAttribute("data-level")] = tas[i].value; } }
+    for (var k=0;k<cbs.length;k++){ if (cbs[k].checked && cbs[k].id){ c.push(cbs[k].id); } }
+    return {j:j, c:c};
+  }
+  function save(){ if (on && !lsSet(DATA, JSON.stringify(collect()))){ toggle.checked = false; on = false; setNote(false); } }
+  function later(){ if (!on){ return; } clearTimeout(timer); timer = setTimeout(save, 400); }
+  function restore(){
+    var raw = lsGet(DATA), d = null;
+    try { d = raw ? JSON.parse(raw) : null; } catch(e){ d = null; }
+    if (!d || typeof d !== "object"){ return; }
+    var tas = document.querySelectorAll("#journalEntries textarea");
+    for (var i=0;i<tas.length;i++){
+      var v = d.j && d.j[tas[i].getAttribute("data-level")];
+      if (typeof v === "string" && !tas[i].value){ tas[i].value = v.slice(0, 20000); }
+    }
+    if (Array.isArray(d.c)){
+      for (var k=0;k<d.c.length;k++){
+        var cb = typeof d.c[k] === "string" ? document.getElementById(d.c[k]) : null;
+        if (cb && cb.type === "checkbox"){ cb.checked = true; cb.dispatchEvent(new Event("change", {bubbles:true})); }
+      }
+    }
+  }
+  if (lsGet(FLAG) === "1"){ on = true; toggle.checked = true; setNote(true); restore(); }
+  toggle.addEventListener("change", function(){
+    if (toggle.checked){
+      if (!lsSet(FLAG, "1")){ toggle.checked = false; return; }
+      on = true; setNote(true); save();
+    } else {
+      on = false; lsDel(FLAG); lsDel(DATA); setNote(false);
+    }
+  });
+  document.addEventListener("input", function(e){ if (e.target && e.target.matches && e.target.matches("#journalEntries textarea")){ later(); } });
+  document.addEventListener("change", function(e){ if (e.target && e.target.matches && e.target.matches('.checklist input[type="checkbox"]')){ later(); } });
+  var clr = document.getElementById("clearJournal");
+  if (clr){ clr.addEventListener("click", function(){ setTimeout(save, 0); }); }
+  window.addEventListener("beforeunload", function(){ if (on){ save(); } });
+})();
 
 onHash();
 window.addEventListener("load", function(){ setTimeout(function(){ window.scrollTo(0,0); }, 0); });

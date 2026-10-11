@@ -18,11 +18,11 @@ Textul spune de la început că radiestezia este clasificată de comunitatea șt
 
 Verificate în cod și în browser:
 - Navigare pe 32 de secțiuni (meniul din stânga, ☰ pe mobil), căutare în cuprins (fără diacritice), progres de parcurgere, link direct către fiecare secțiune (`#l5`, `#jurnal` etc.) și butonul Înapoi al browserului.
-- Test demonstrativ al efectului ideomotor (Nivelul 1): accelerometrul telefonului înregistrează 8 secunde de micro-mișcări ale mâinii și desenează un grafic. Nu detectează „energii”.
+- Test demonstrativ al efectului ideomotor (Nivelul 1; fără accelerometru, de exemplu pe desktop, trece automat la varianta cu cursorul): accelerometrul telefonului înregistrează 8 secunde de micro-mișcări ale mâinii și desenează un grafic. Nu detectează „energii”.
 - Variantă fără senzori a aceluiași test (Nivelul 1, „Fără senzor de mișcare”): pentru desktop sau telefoane fără accelerometru accesibil, măsoară 8 secunde de deplasări involuntare ale cursorului sau degetului față de punctul de pornire și le desenează pe grafic. Testată în browser cu mișcări simulate; nu detectează „energii”.
 - Diagrame SVG animate la cerere, mod „lite” (fără diagrame), ținte de atingere mai mari la căsuțele de bifat.
-- Liste de bifat cu contor de progres (doar în pagina deschisă).
-- Jurnal de practică cu câte o notiță pe nivel, descărcabil ca `.txt` sau `.md`.
+- Liste de bifat cu contor de progres (implicit doar în pagina deschisă; opțional se pot păstra în browser, vezi mai jos).
+- Jurnal de practică cu câte o notiță pe nivel, descărcabil ca `.txt` sau `.md`; caseta opțională „Păstrează jurnalul și bifele în acest browser” (dezactivată implicit) le salvează în `localStorage`, necriptat, iar debifarea șterge copia.
 - „Copiază citarea acestei secțiuni”, „Extrage sursele menționate” (descarcă un `.txt`) și un rezumat de un ecran al Nivelului 14 (limite de sănătate), descărcabil.
 - Tipărire: se tipărește secțiunea afișată.
 
@@ -32,12 +32,12 @@ Verificate în cod și în browser:
 2. Alege un nivel din meniu sau apasă „Începe Nivelul 01”. Pe mobil, meniul se deschide cu ☰ și se închide cu Esc sau atingând fundalul.
 3. La Nivelul 1 poți face testul de 8 secunde cu telefonul (browserul cere permisiune pentru senzorul de mișcare; pe iOS apare o fereastră de confirmare).
 4. Fă exercițiile din „Aplicație practică” și bifează-le.
-5. Scrie notițe în „Jurnalul meu de practică” și descarcă-le înainte să închizi pagina: nu se salvează în browser.
+5. Scrie notițe în „Jurnalul meu de practică” și descarcă-le înainte să închizi pagina: implicit nu se salvează în browser (opțional, bifează „Păstrează jurnalul și bifele în acest browser”).
 6. Pentru context critic, citește secțiunea „Cercetarea științifică” și anexele internaționale.
 
 ## Confidențialitate și rețea
 
-- Stocare: aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Notițele din jurnal și bifele există doar cât timp pagina e deschisă; la închidere browserul avertizează dacă există notițe nesalvate.
+- Stocare: implicit aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Doar dacă bifezi tu „Păstrează jurnalul și bifele în acest browser”, notițele și bifele (necriptate) se salvează în `localStorage` (chei `radiestezie.*`); debifarea le șterge. Altfel, notițele din jurnal și bifele există doar cât timp pagina e deschisă; la închidere browserul avertizează dacă există notițe nesalvate.
 - Rețea: la încărcare nu se face nicio cerere externă (verificat în browser). Politica de securitate din pagină (`Content-Security-Policy`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice altă resursă externă.
 - Singurul link extern este reportajul Digi24 citat în anexa România; se deschide doar dacă îl apeși (într-o filă nouă, cu `noopener`).
 - Permisiuni: doar senzorul de mișcare (accelerometru), numai când apeși „Pornește testul”. Nu se trimite nimic nicăieri.
@@ -56,6 +56,10 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
 
 ## Istoric / Changelog
+
+### 11.10.2026 (a treia actualizare) — 11 octombrie 2026
+- Corectat: pe desktop, „Pornește testul” (cu senzor) nu făcea nimic util; acum, dacă senzorul lipsește sau nu trimite date în 2 secunde, trece automat la varianta cu cursorul/degetul, cu un mesaj clar.
+- Jurnal și bifele: păstrare opțională în browser (dezactivată implicit, cu avertisment că stocarea e necriptată).
 
 ### 11.10.2026 (a doua actualizare) — 11 octombrie 2026
 - Securitate: CSP cu `script-src` pe hash SHA-256, fără `'unsafe-inline'` pentru scripturi.
