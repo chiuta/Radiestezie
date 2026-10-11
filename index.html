@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; manifest-src data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-2KdtQUT9D4YRjMoJDLki5NwXiV5zrQHYyzhdpoD6G9A='; style-src 'unsafe-inline'; img-src data:; manifest-src data:; base-uri 'none'; form-action 'none'">
 <meta name="description" content="Curs offline despre radiestezie în 18 niveluri, cu context internațional, glosar și jurnal de practică. Material educativ: radiestezia nu are validare științifică.">
 <meta property="og:title" content="Radiestezia — Curs în 18 Niveluri">
 <meta property="og:description" content="Curs offline despre radiestezie, prezentat onest: tradiție și exercițiu de atenție, fără validare științifică.">
@@ -861,6 +861,10 @@ main:focus,.level-title:focus,.view h1:focus{outline:none;}
 <p>Nu construim aici un „detector" de energii — telefonul tău nu poate măsura așa ceva, și niciun instrument din acest curs n-o poate face. Poate însă demonstra <em>mecanismul real</em>: chiar și accelerometrul obișnuit dintr-un telefon e suficient de sensibil ca să înregistreze mișcările involuntare ale mâinii tale, pe care nu le simți conștient. Ține telefonul în mână, cât mai nemișcat posibil, timp de 8 secunde.</p>
 <div class="level-diagram" id="ideoDemo">
   <button class="navbtn primary" id="startIdeoTest" type="button">Pornește testul (8 secunde)</button>
+  <button class="navbtn" id="startPointerTest" type="button" style="margin-left:.5rem;">Fără senzor de mișcare: test cu cursorul sau degetul</button>
+  <div id="pointerPad" role="img" aria-label="Zonă de test: pune cursorul sau degetul pe cruce și ține-l cât mai nemișcat timp de 8 secunde" style="display:none;position:relative;height:150px;margin-top:1rem;border:1px dashed var(--line);border-radius:10px;touch-action:none;cursor:crosshair;">
+    <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" style="position:absolute;left:50%;top:50%;margin:-20px 0 0 -20px;pointer-events:none;"><path d="M20 4v32M4 20h32" stroke="var(--brass-deep)" stroke-width="1.5"/><circle cx="20" cy="20" r="3" fill="none" stroke="var(--brass-deep)" stroke-width="1.5"/></svg>
+  </div>
   <div id="ideoTestArea" style="display:none;margin-top:1rem;">
     <svg viewBox="0 0 380 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
       <line x1="0" y1="60" x2="380" y2="60" stroke="var(--line)" stroke-width="1"/>
@@ -3493,12 +3497,13 @@ document.addEventListener("keydown", function(e){
 
   function magnitude(x,y,z){ return Math.sqrt(x*x+y*y+z*z); }
 
-  function drawGraph(){
-    if (!polyline || samples.length < 2){ return; }
-    var w = 380, h = 120, maxAbs = 0.6;
+  function drawGraph(list, scale){
+    list = list || samples;
+    if (!polyline || list.length < 2){ return; }
+    var w = 380, h = 120, maxAbs = scale || 0.6;
     var pts = [];
-    for (var i=0;i<samples.length;i++){
-      var s = samples[i];
+    for (var i=0;i<list.length;i++){
+      var s = list[i];
       var x = (s.t / DURATION) * w;
       var clamped = Math.max(-maxAbs, Math.min(maxAbs, s.v));
       var y = h/2 - (clamped / maxAbs) * (h/2 - 6);
@@ -3553,6 +3558,49 @@ document.addEventListener("keydown", function(e){
     handler = onMotion;
     window.addEventListener("devicemotion", handler);
     setTimeout(function(){ if (handler){ stopTest(); } }, DURATION + 150);
+  }
+
+  /* Variantă fără senzori: deplasările involuntare ale cursorului/degetului față de punctul de pornire, 8 secunde */
+  var ptrBtn = document.getElementById("startPointerTest");
+  var pad = document.getElementById("pointerPad");
+  if (ptrBtn && pad){
+    var pOrigin = null, pList = [], pStart = 0, pWait = false, pTimer = null;
+    var P_SCALE = 12; // px reprezentați pe grafic
+    var pNote = function(txt){ resultEl.innerHTML = "<p style=\"font-size:.88rem;color:var(--ink-faint);\">" + txt + "</p>"; };
+    var pFinish = function(){
+      pOrigin = null; pWait = false; clearTimeout(pTimer);
+      ptrBtn.disabled = false; ptrBtn.textContent = "Repetă testul cu cursorul";
+      statusEl.textContent = "";
+      var maxV = 0, sum = 0;
+      for (var i=0;i<pList.length;i++){ if (pList[i].v > maxV){ maxV = pList[i].v; } sum += pList[i].v; }
+      var avg = pList.length ? sum / pList.length : 0;
+      if (maxV < 1){
+        pNote("Nu am înregistrat nicio deplasare: ai ținut cursorul perfect nemișcat sau dispozitivul nu raportează micro-mișcări. Încearcă din nou, de preferat cu degetul pe un ecran tactil, fără să reazemi mâna.");
+        return;
+      }
+      resultEl.innerHTML = "<div class=\"callout def\"><span class=\"lbl\">Rezultatul tău</span><p>Deși ai încercat să stai nemișcat, cursorul (sau degetul) s-a abătut în medie cu <strong>" + avg.toFixed(1) + " px</strong> față de punctul de pornire, cu un vârf de <strong>" + maxV.toFixed(1) + " px</strong> — mișcări involuntare, pe care nu le-ai ales conștient. Acesta e tipul de micro-mișcare studiat în efectul ideomotor; nu măsoară nicio „energie”.</p></div>";
+    };
+    var pPoint = function(e){
+      if (!pWait && !pOrigin){ return; }
+      if (!pOrigin){
+        pOrigin = {x:e.clientX, y:e.clientY}; pStart = Date.now(); pList = [{t:0, v:0}]; pWait = false;
+        statusEl.textContent = "Măsurăm… ține cursorul sau degetul cât mai nemișcat.";
+        pTimer = setTimeout(pFinish, DURATION);
+        return;
+      }
+      var dx = e.clientX - pOrigin.x, dy = e.clientY - pOrigin.y;
+      pList.push({t:Math.min(DURATION, Date.now() - pStart), v:Math.sqrt(dx*dx + dy*dy)});
+      drawGraph(pList, P_SCALE);
+    };
+    pad.addEventListener("pointermove", pPoint);
+    pad.addEventListener("pointerdown", pPoint);
+    ptrBtn.addEventListener("click", function(){
+      pad.style.display = "block"; area.style.display = "block";
+      resultEl.innerHTML = ""; if (polyline){ polyline.setAttribute("points", ""); }
+      pList = []; pOrigin = null; pWait = true; clearTimeout(pTimer);
+      ptrBtn.disabled = true;
+      statusEl.textContent = "Pune cursorul (sau degetul) pe cruce și ține-l cât mai nemișcat; măsurătoarea de 8 secunde începe la prima mișcare sau atingere în zonă.";
+    });
   }
 
   startBtn.addEventListener("click", function(){

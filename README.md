@@ -19,6 +19,7 @@ Textul spune de la început că radiestezia este clasificată de comunitatea șt
 Verificate în cod și în browser:
 - Navigare pe 32 de secțiuni (meniul din stânga, ☰ pe mobil), căutare în cuprins (fără diacritice), progres de parcurgere, link direct către fiecare secțiune (`#l5`, `#jurnal` etc.) și butonul Înapoi al browserului.
 - Test demonstrativ al efectului ideomotor (Nivelul 1): accelerometrul telefonului înregistrează 8 secunde de micro-mișcări ale mâinii și desenează un grafic. Nu detectează „energii”.
+- Variantă fără senzori a aceluiași test (Nivelul 1, „Fără senzor de mișcare”): pentru desktop sau telefoane fără accelerometru accesibil, măsoară 8 secunde de deplasări involuntare ale cursorului sau degetului față de punctul de pornire și le desenează pe grafic. Testată în browser cu mișcări simulate; nu detectează „energii”.
 - Diagrame SVG animate la cerere, mod „lite” (fără diagrame), ținte de atingere mai mari la căsuțele de bifat.
 - Liste de bifat cu contor de progres (doar în pagina deschisă).
 - Jurnal de practică cu câte o notiță pe nivel, descărcabil ca `.txt` sau `.md`.
@@ -37,7 +38,7 @@ Verificate în cod și în browser:
 ## Confidențialitate și rețea
 
 - Stocare: aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Notițele din jurnal și bifele există doar cât timp pagina e deschisă; la închidere browserul avertizează dacă există notițe nesalvate.
-- Rețea: la încărcare nu se face nicio cerere externă (verificat în browser). Politica de securitate din pagină (`Content-Security-Policy`) blochează orice altă resursă externă.
+- Rețea: la încărcare nu se face nicio cerere externă (verificat în browser). Politica de securitate din pagină (`Content-Security-Policy`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice altă resursă externă.
 - Singurul link extern este reportajul Digi24 citat în anexa România; se deschide doar dacă îl apeși (într-o filă nouă, cu `noopener`).
 - Permisiuni: doar senzorul de mișcare (accelerometru), numai când apeși „Pornește testul”. Nu se trimite nimic nicăieri.
 - Fișierele (jurnal, surse, rezumat) se generează local în browser și se descarcă pe dispozitivul tău.
@@ -55,6 +56,10 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
 
 ## Istoric / Changelog
+
+### 11.10.2026 (a doua actualizare) — 11 octombrie 2026
+- Securitate: CSP cu `script-src` pe hash SHA-256, fără `'unsafe-inline'` pentru scripturi.
+- Nivelul 1: test ideomotor alternativ, cu cursorul sau degetul, pentru dispozitivele fără senzor de mișcare (în loc de simplul mesaj că testul nu funcționează pe desktop).
 
 ### 11.10.2026 — 11 octombrie 2026
 - Accesibilitate: avertismentul de subsol nu mai este un reper contentinfo imbricat în main (devine notă); verificare axe fără încălcări.
