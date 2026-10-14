@@ -1,6 +1,6 @@
 # Radiestezia — Curs în 18 niveluri
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 Curs offline despre radiestezie (pendul, baghete, geobiologie), într-un singur fișier HTML, prezentat ca tradiție și exercițiu de atenție, nu ca metodă validată științific.
 
@@ -56,6 +56,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
 
 ## Istoric / Changelog
+
+### 1.1.0 — 2026-10-14
+- Copie de rezervă și etichetare date (fff-kit).
 
 ### 1.0.0 — 12 octombrie 2026
 - Versiunea și data ultimei actualizări sunt afișate în aplicație (secțiunea „Metodologie & ultima verificare”).
