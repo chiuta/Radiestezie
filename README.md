@@ -76,7 +76,7 @@ Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. P
 
 ## Licență
 
-Licența nu este încă declarată.
+MIT — vezi fișierul LICENSE.
 
 ## Autor
 
