@@ -1,87 +1,89 @@
-# Radiestezia — Curs în 18 niveluri
+# Radiestezia — 18-level course
 
-**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Curs offline despre radiestezie (pendul, baghete, geobiologie), într-un singur fișier HTML, prezentat ca tradiție și exercițiu de atenție, nu ca metodă validată științific.
+**Version:** 1.1.0 · **Last updated:** 2026-10-14
 
-**Live:** https://chiuta.github.io/Radiestezie/
+An offline course on dowsing (radiesthesia: pendulum, rods, geobiology), in a single HTML file, presented as a tradition and an attention exercise, not as a scientifically validated method.
 
-![Captura de ecran](screenshot.png)
+**Live app:** https://chiuta.github.io/Radiestezie/
 
-## Ce este
+![Screenshot](screenshot.png)
 
-Un curs în limba română, cu 18 niveluri, plus glosar, o secțiune despre cercetarea științifică, o metodologie, un jurnal de practică și 9 anexe de context internațional (România, Europa, Asia, Africa, Australia și Oceania, America de Sud, America Centrală și Caraibe, America de Nord, alte regiuni). Fiecare nivel are teorie, o „Aplicație practică” cu listă de bifat și o autoevaluare cu întrebări deschise.
+## What it is
 
-Textul spune de la început că radiestezia este clasificată de comunitatea științifică drept pseudoștiință și că testele controlate nu au arătat rezultate peste hazard. Cursul predă tehnica și vocabularul tradiției, plus limitele ei.
+A course in Romanian, with 18 levels, plus a glossary, a section on scientific research, a methodology, a practice journal and 9 appendices of international context (Romania, Europe, Asia, Africa, Australia and Oceania, South America, Central America and the Caribbean, North America, other regions). Each level has theory, a "Practical application" with a checklist and a self-assessment with open questions.
 
-## Funcții
+The text states from the outset that dowsing is classified by the scientific community as pseudoscience and that controlled tests have shown no results above chance. The course teaches the technique and vocabulary of the tradition, together with its limits.
 
-Verificate în cod și în browser:
-- Navigare pe 32 de secțiuni (meniul din stânga, ☰ pe mobil), căutare în cuprins (fără diacritice), progres de parcurgere, link direct către fiecare secțiune (`#l5`, `#jurnal` etc.) și butonul Înapoi al browserului.
-- Test demonstrativ al efectului ideomotor (Nivelul 1; fără accelerometru, de exemplu pe desktop, trece automat la varianta cu cursorul): accelerometrul telefonului înregistrează 8 secunde de micro-mișcări ale mâinii și desenează un grafic. Nu detectează „energii”.
-- Variantă fără senzori a aceluiași test (Nivelul 1, „Fără senzor de mișcare”): pentru desktop sau telefoane fără accelerometru accesibil, măsoară 8 secunde de deplasări involuntare ale cursorului sau degetului față de punctul de pornire și le desenează pe grafic. Testată în browser cu mișcări simulate; nu detectează „energii”.
-- Diagrame SVG animate la cerere, mod „lite” (fără diagrame), ținte de atingere mai mari la căsuțele de bifat.
-- Liste de bifat cu contor de progres (implicit doar în pagina deschisă; opțional se pot păstra în browser, vezi mai jos).
-- Jurnal de practică cu câte o notiță pe nivel, descărcabil ca `.txt` sau `.md`; caseta opțională „Păstrează jurnalul și bifele în acest browser” (dezactivată implicit) le salvează în `localStorage`, necriptat, iar debifarea șterge copia.
-- „Copiază citarea acestei secțiuni”, „Extrage sursele menționate” (descarcă un `.txt`) și un rezumat de un ecran al Nivelului 14 (limite de sănătate), descărcabil.
-- Tipărire: se tipărește secțiunea afișată.
+## Features
 
-## Manual de utilizare
+Verified in code and in the browser:
+- Navigation across 32 sections (left-hand menu, ☰ on mobile), search in the table of contents (diacritics-insensitive), progress tracking, a direct link to each section (`#l5`, `#jurnal`, etc.) and support for the browser's Back button.
+- Demonstration test of the ideomotor effect (Level 1; without an accelerometer, for example on desktop, it switches automatically to the cursor variant): the phone's accelerometer records 8 seconds of hand micro-movements and draws a graph. It does not detect "energies".
+- Sensor-free variant of the same test (Level 1, "Without motion sensor"): for desktops or phones without an accessible accelerometer, it measures 8 seconds of involuntary movements of the cursor or finger relative to the starting point and plots them on the graph. Tested in the browser with simulated movements; it does not detect "energies".
+- SVG diagrams animated on request, a "lite" mode (without diagrams), larger touch targets for the checkboxes.
+- Checklists with a progress counter (by default only in the open page; optionally they can be kept in the browser, see below).
+- Practice journal with one note per level, downloadable as `.txt` or `.md`; the optional box "Keep the journal and checkmarks in this browser" (off by default) saves them in `localStorage`, unencrypted, and unchecking it deletes the copy.
+- "Copy the citation of this section", "Extract the sources mentioned" (downloads a `.txt`) and a one-screen summary of Level 14 (health limits), downloadable.
+- Printing: the section on display is printed.
 
-1. Deschide pagina și citește „Nota introductivă” de pe prima pagină.
-2. Alege un nivel din meniu sau apasă „Începe Nivelul 01”. Pe mobil, meniul se deschide cu ☰ și se închide cu Esc sau atingând fundalul.
-3. La Nivelul 1 poți face testul de 8 secunde cu telefonul (browserul cere permisiune pentru senzorul de mișcare; pe iOS apare o fereastră de confirmare).
-4. Fă exercițiile din „Aplicație practică” și bifează-le.
-5. Scrie notițe în „Jurnalul meu de practică” și descarcă-le înainte să închizi pagina: implicit nu se salvează în browser (opțional, bifează „Păstrează jurnalul și bifele în acest browser”).
-6. Pentru context critic, citește secțiunea „Cercetarea științifică” și anexele internaționale.
+## User guide
 
-## Confidențialitate și rețea
+1. Open the page and read the "Introductory note" on the first page.
+2. Choose a level from the menu or press "Start Level 01". On mobile, the menu opens with ☰ and closes with Esc or by tapping the background.
+3. At Level 1 you can do the 8-second test with your phone (the browser asks for permission for the motion sensor; on iOS a confirmation window appears).
+4. Do the exercises in "Practical application" and tick them off.
+5. Write notes in "My practice journal" and download them before closing the page: by default they are not saved in the browser (optionally, tick "Keep the journal and checkmarks in this browser").
+6. For critical context, read the "Scientific research" section and the international appendices.
 
-- Stocare: implicit aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Doar dacă bifezi tu „Păstrează jurnalul și bifele în acest browser”, notițele și bifele (necriptate) se salvează în `localStorage` (chei `radiestezie.*`); debifarea le șterge. Altfel, notițele din jurnal și bifele există doar cât timp pagina e deschisă; la închidere browserul avertizează dacă există notițe nesalvate.
-- Rețea: la încărcare nu se face nicio cerere externă (verificat în browser). Politica de securitate din pagină (`Content-Security-Policy`, scriptul autorizat prin hash SHA-256, fără `'unsafe-inline'` pentru scripturi) blochează orice altă resursă externă.
-- Singurul link extern este reportajul Digi24 citat în anexa România; se deschide doar dacă îl apeși (într-o filă nouă, cu `noopener`).
-- Permisiuni: doar senzorul de mișcare (accelerometru), numai când apeși „Pornește testul”. Nu se trimite nimic nicăieri.
-- Fișierele (jurnal, surse, rezumat) se generează local în browser și se descarcă pe dispozitivul tău.
+## Privacy and network
 
-## Limite și avertismente
+- Storage: by default the application does not use `localStorage`, `sessionStorage`, IndexedDB or cookies. Only if you yourself tick "Keep the journal and checkmarks in this browser" are the notes and checkmarks (unencrypted) saved in `localStorage` (keys `radiestezie.*`); unchecking deletes them. Otherwise, the journal notes and checkmarks exist only while the page is open; on closing, the browser warns if there are unsaved notes.
+- Network: on loading, no external request is made (verified in the browser). The security policy in the page (`Content-Security-Policy`, script authorized by SHA-256 hash, no `'unsafe-inline'` for scripts) blocks any other external resource.
+- The only external link is the Digi24 report cited in the Romania appendix; it opens only if you click it (in a new tab, with `noopener`).
+- Permissions: only the motion sensor (accelerometer), only when you press "Start the test". Nothing is sent anywhere.
+- The files (journal, sources, summary) are generated locally in the browser and downloaded to your device.
 
-- Radiestezia nu are validare științifică. Mișcarea pendulului sau a baghetelor este explicată prin efectul ideomotor; testele controlate nu arată rezultate peste hazard.
-- Nu o folosi pentru diagnostic, alegerea unui tratament sau a unei doze, evaluarea sănătății unui copil sau a siguranței alimentelor. Pentru urgențe sună la 112.
-- Nu o folosi pentru decizii financiare, juridice, imobiliare sau de construcție (foraje, săpături, cumpărarea sau renovarea unei locuințe). Înainte de orice săpătură, verifică oficial poziția rețelelor de utilități.
-- Anexele internaționale sunt documentare din surse publice online, fără contactarea organizațiilor citate (conform secțiunii de metodologie din aplicație). Prețurile și denumirile cursurilor se schimbă; verifică sursele originale. Unele date istorice (titluri de cărți, anul unor asociații) nu au fost verificate independent.
-- Testul de accelerometru depinde de dispozitiv și browser; pe desktop de obicei nu funcționează.
+## Limits and warnings
 
-## Rulare locală / offline
+- Dowsing has no scientific validation. The movement of the pendulum or rods is explained by the ideomotor effect; controlled tests show no results above chance.
+- Do not use it for diagnosis, choosing a treatment or a dose, assessing a child's health or the safety of food. For emergencies call 112.
+- Do not use it for financial, legal, real-estate or construction decisions (drilling, digging, buying or renovating a home). Before any digging, officially check the position of utility networks.
+- The international appendices are documentation from public online sources, without contacting the organizations cited (according to the methodology section in the application). Prices and course names change; check the original sources. Some historical data (book titles, the year of some associations) have not been independently verified.
+- The accelerometer test depends on the device and browser; on desktop it usually does not work.
 
-Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
+## Running locally / offline
 
-## Istoric / Changelog
+Download `index.html` and open it in a browser; it has no external dependencies. On GitHub Pages it works identically.
+
+## History / Changelog
 
 ### 1.1.0 — 2026-10-14
-- Copie de rezervă și etichetare date (fff-kit).
+- Backup and data labelling (fff-kit).
 
-### 1.0.0 — 12 octombrie 2026
-- Versiunea și data ultimei actualizări sunt afișate în aplicație (secțiunea „Metodologie & ultima verificare”).
+### 1.0.0 — 12 October 2026
+- The version and the date of the last update are shown in the application ("Methodology & last check" section).
 
-### 11.10.2026 (a treia actualizare) — 11 octombrie 2026
-- Corectat: pe desktop, „Pornește testul” (cu senzor) nu făcea nimic util; acum, dacă senzorul lipsește sau nu trimite date în 2 secunde, trece automat la varianta cu cursorul/degetul, cu un mesaj clar.
-- Jurnal și bifele: păstrare opțională în browser (dezactivată implicit, cu avertisment că stocarea e necriptată).
+### 11.10.2026 (third update) — 11 October 2026
+- Fixed: on desktop, "Start the test" (with sensor) did nothing useful; now, if the sensor is missing or sends no data within 2 seconds, it switches automatically to the cursor/finger variant, with a clear message.
+- Journal and checkmarks: optional storage in the browser (off by default, with a warning that the storage is unencrypted).
 
-### 11.10.2026 (a doua actualizare) — 11 octombrie 2026
-- Securitate: CSP cu `script-src` pe hash SHA-256, fără `'unsafe-inline'` pentru scripturi.
-- Nivelul 1: test ideomotor alternativ, cu cursorul sau degetul, pentru dispozitivele fără senzor de mișcare (în loc de simplul mesaj că testul nu funcționează pe desktop).
+### 11.10.2026 (second update) — 11 October 2026
+- Security: CSP with `script-src` on a SHA-256 hash, without `'unsafe-inline'` for scripts.
+- Level 1: alternative ideomotor test, with the cursor or finger, for devices without a motion sensor (instead of the plain message that the test does not work on desktop).
 
-### 11.10.2026 — 11 octombrie 2026
-- Accesibilitate: avertismentul de subsol nu mai este un reper contentinfo imbricat în main (devine notă); verificare axe fără încălcări.
+### 11.10.2026 — 11 October 2026
+- Accessibility: the footer warning is no longer a contentinfo landmark nested in main (it becomes a note); axe check with no violations.
 
-## Licență
+## License
 
-MIT — vezi fișierul LICENSE.
+MIT — see the LICENSE file.
 
-## Autor
+## Author
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Summary
 
 A single-file, offline Romanian-language course on dowsing (radiesthesia) in 18 levels, with a glossary, a research section, nine international appendices and a downloadable practice journal. It states plainly that dowsing is classified as pseudoscience and that controlled tests show chance-level results, and it forbids medical, financial or construction decisions based on it. No external requests, no cookies, no browser storage; journal notes live only in the open page and can be downloaded.
