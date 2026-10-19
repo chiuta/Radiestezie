@@ -86,6 +86,6 @@ MIT — vezi fișierul LICENSE.
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-A single-file, offline Romanian-language course on dowsing (radiesthesia) in 18 levels, with a glossary, a research section, nine international appendices and a downloadable practice journal. It states plainly that dowsing is classified as pseudoscience and that controlled tests show chance-level results, and it forbids medical, financial or construction decisions based on it. No external requests, no cookies, no browser storage; journal notes live only in the open page and can be downloaded.
+Un curs offline într-un singur fișier, în limba română, despre radiestezie (rabdomanție) pe 18 niveluri, cu glosar, o secțiune de cercetare, nouă anexe internaționale și un jurnal de practică descărcabil. Afirmă clar că radiestezia este clasificată drept pseudoștiință și că testele controlate arată rezultate la nivelul întâmplării, și interzice deciziile medicale, financiare sau de construcție bazate pe ea. Fără cereri externe, fără cookie-uri, fără stocare în browser; notițele din jurnal există doar în pagina deschisă și pot fi descărcate.
