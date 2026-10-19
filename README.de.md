@@ -10,7 +10,7 @@ Offline-Kurs über Radiästhesie (Wünschelrute, Pendel, Geobiologie) in einer e
 
 **Online-App:** https://chiuta.github.io/Radiestezie/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

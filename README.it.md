@@ -10,7 +10,7 @@ Corso offline sulla radiestesia (pendolo, bacchette, geobiologia), in un unico f
 
 **App online:** https://chiuta.github.io/Radiestezie/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 

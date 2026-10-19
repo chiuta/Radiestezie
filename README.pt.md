@@ -10,7 +10,7 @@ Curso offline sobre radiestesia (pêndulo, varetas, geobiologia), num único fic
 
 **Aplicação online:** https://chiuta.github.io/Radiestezie/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## O que é
 

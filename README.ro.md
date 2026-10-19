@@ -10,7 +10,7 @@ Curs offline despre radiestezie (pendul, baghete, geobiologie), într-un singur 
 
 **Live:** https://chiuta.github.io/Radiestezie/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

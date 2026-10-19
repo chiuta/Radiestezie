@@ -10,7 +10,7 @@ Cours hors ligne sur la radiesthésie (pendule, baguettes, géobiologie), dans u
 
 **Application en ligne :** https://chiuta.github.io/Radiestezie/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## Présentation
 

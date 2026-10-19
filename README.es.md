@@ -10,7 +10,7 @@ Curso sin conexión sobre radiestesia (péndulo, varillas, geobiología), en un 
 
 **Aplicación en línea:** https://chiuta.github.io/Radiestezie/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Qué es
 

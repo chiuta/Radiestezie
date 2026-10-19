@@ -10,7 +10,7 @@ An offline course on dowsing (radiesthesia: pendulum, rods, geobiology), in a si
 
 **Live app:** https://chiuta.github.io/Radiestezie/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

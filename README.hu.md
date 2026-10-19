@@ -10,7 +10,7 @@ Offline tanfolyam a sugárzásérzékelésről (radiesztézia: inga, vesszők, g
 
 **Online alkalmazás:** https://chiuta.github.io/Radiestezie/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 
