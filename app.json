@@ -2,29 +2,31 @@
   "schema": 1,
   "slug": "radiestezie",
   "name": "Radiestezia — Curs în 18 Niveluri",
-  "version": "1.2.1",
-  "updated": "2026-10-19",
+  "version": "1.2.2",
+  "updated": "2026-10-22",
   "description": "Curs offline despre radiestezie în 18 niveluri, cu context internațional, glosar și jurnal de practică. Material educativ: radiestezia nu are validare științifică.",
   "egress": [],
   "permissions": [
     "clipboard",
+    "serviceWorker",
     "localStorage"
   ],
   "storageKeys": [
     "radiestezie.limba"
   ],
-  "sizeBytes": 1739778,
-  "sha256": "47a2fa029b3118dd8b543aafae10bdd75ac284a0b8818664579ddbc83b2b56e0",
+  "sizeBytes": 1744480,
+  "sha256": "da7451476cb2662da0d5132c10962f84220aa6c43717f22986338ccbae05c88a",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "'self' sha256×2",
+      "script-src": "'self' sha256×4",
       "style-src": "'unsafe-inline'",
-      "img-src": "data:",
-      "manifest-src": "data:",
+      "img-src": "'self' data:",
+      "manifest-src": "'self' data:",
       "base-uri": "'none'",
-      "form-action": "'none'"
+      "form-action": "'none'",
+      "worker-src": "'self'"
     },
     "scriptInline": "hash",
     "connect": "'none'"
@@ -44,7 +46,7 @@
     ],
     "pwa": {
       "manifest": true,
-      "serviceWorker": false
+      "serviceWorker": true
     },
     "modules": [
       "core",

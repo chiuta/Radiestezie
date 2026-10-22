@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.1 · **Última atualização:** 2026-10-19
+**Versão:** 1.2.2 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,9 @@ Verificadas no código e no navegador:
 Descarregue `index.html` e abra-o num navegador; não tem dependências externas. No GitHub Pages funciona da mesma forma.
 
 ## Histórico / Registo de alterações
+
+### 1.2.2 — 2026-10-22
+- Um único H1 por página (os 31 títulos de nível são agora H2 com o mesmo aspeto); o título da página já não cola as palavras quando um cabeçalho contém uma quebra de linha; service worker e manifesto reais (funciona offline, instalável por https); confirm/prompt do navegador substituídos por diálogos próprios traduzidos nos 8 idiomas; o viewport já não limita o zoom; caixas de seleção de pelo menos 24 px e texto de pelo menos 12 px no telemóvel.
 
 ### 1.1.0 — 2026-10-14
 - Cópia de segurança e etiquetagem de dados (fff-kit).
