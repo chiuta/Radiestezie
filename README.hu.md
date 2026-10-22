@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.3 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 1.2.4 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Kódban és böngészőben ellenőrizve:
 Töltsd le az `index.html` fájlt, és nyisd meg egy böngészőben; nincsenek külső függőségei. A GitHub Pages-en azonosan működik.
 
 ## Előzmények / Változásnapló
+
+### 1.2.4 — 2026-10-22
+
+fff-kit 1.1.4: érintési célok és minimális szövegméret; érintési célok és szöveg javítva.
 
 ### 1.2.3 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 iterációval, clickjacking elleni védelem
