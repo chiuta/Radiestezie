@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.2 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.2.3 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
 
 ## Istoric / Changelog
+
+### 1.2.3 — 2026-10-22
+- fff-kit 1.1.2: PBKDF2 600 000 iterații, protecție anti-clickjacking
 
 ### 1.2.2 — 2026-10-22
 - Un singur H1 pe pagină (cele 31 de titluri de nivel sunt acum H2, cu același aspect); titlul paginii nu mai lipește cuvintele când un titlu conține o linie nouă; service worker și manifest reale (funcționează offline, se poate instala prin https); confirm/prompt ale browserului înlocuite cu dialoguri proprii, traduse în cele 8 limbi; viewport-ul nu mai limitează zoom-ul; căsuțe de bifat de minimum 24 px și text de minimum 12 px pe mobil.

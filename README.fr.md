@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.2 · **Dernière mise à jour :** 2026-10-22
+**Version :** 1.2.3 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,9 @@ Vérifiées dans le code et dans le navigateur :
 Téléchargez `index.html` et ouvrez-le dans un navigateur ; il n'a aucune dépendance externe. Sur GitHub Pages, il fonctionne de la même façon.
 
 ## Historique / Journal des modifications
+
+### 1.2.3 — 2026-10-22
+- fff-kit 1.1.2 : PBKDF2 à 600 000 itérations, protection anti-clickjacking
 
 ### 1.2.2 — 2026-10-22
 - Un seul H1 par page (les 31 titres de niveau sont désormais des H2 au même aspect) ; le titre de la page ne colle plus les mots lorsqu'un intitulé contient un saut de ligne ; vrais service worker et manifeste (fonctionne hors ligne, installable via https) ; confirm/prompt du navigateur remplacés par des boîtes de dialogue propres, traduites dans les 8 langues ; le viewport ne limite plus le zoom ; cases à cocher d'au moins 24 px et texte d'au moins 12 px sur mobile.

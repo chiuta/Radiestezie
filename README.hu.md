@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.2 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 1.2.3 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,9 @@ Kódban és böngészőben ellenőrizve:
 Töltsd le az `index.html` fájlt, és nyisd meg egy böngészőben; nincsenek külső függőségei. A GitHub Pages-en azonosan működik.
 
 ## Előzmények / Változásnapló
+
+### 1.2.3 — 2026-10-22
+- fff-kit 1.1.2: PBKDF2 600 000 iterációval, clickjacking elleni védelem
 
 ### 1.2.2 — 2026-10-22
 - Oldalanként egyetlen H1 (a 31 szintcím mostantól H2, változatlan megjelenéssel); az oldal címe már nem ragasztja össze a szavakat, ha a címsor sortörést tartalmaz; valódi service worker és manifest (offline is működik, https-en telepíthető); a böngésző confirm/prompt ablakait saját, mind a 8 nyelvre lefordított párbeszédablakok váltják; a viewport már nem korlátozza a nagyítást; legalább 24 px-es jelölőnégyzetek és legalább 12 px-es szöveg mobilon.
