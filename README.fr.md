@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.5 · **Dernière mise à jour :** 2026-10-23
+**Version :** 1.2.6 · **Dernière mise à jour :** 2026-10-23
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +60,10 @@ Vérifiées dans le code et dans le navigateur :
 Téléchargez `index.html` et ouvrez-le dans un navigateur ; il n'a aucune dépendance externe. Sur GitHub Pages, il fonctionne de la même façon.
 
 ## Historique / Journal des modifications
+
+### 1.2.6 — 2026-10-23
+
+- Cibles tactiles d’au moins 44 px sur les appareils tactiles (`pointer:coarse`) ; le bureau reste inchangé.
 
 ### 1.2.4 — 2026-10-22
 
