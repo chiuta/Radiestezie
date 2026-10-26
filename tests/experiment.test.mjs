@@ -1,0 +1,47 @@
+// Experiment orb (v2.0.0): randomizare, scor binomial exact, moduri ecran/asistent. Rulare: node tests/experiment.test.mjs
+import {createRequire} from 'module'; import path from 'node:path'; import {fileURLToPath} from 'node:url'; import fs from 'node:fs';
+const require = createRequire(process.env.PW_ROOT || import.meta.url); const {chromium} = require('playwright');
+const HERE = path.dirname(fileURLToPath(import.meta.url)); const FILE = 'file://' + path.join(HERE, '..', 'index.html');
+let ok = 0, bad = 0; const t = (n, c, x) => { if (c) { ok++; console.log('  ok  ', n); } else { bad++; console.log('  FAIL', n, x ?? ''); } };
+const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox']});
+const ctx = await b.newContext({viewport: {width: 1100, height: 900}, locale: 'en-US', acceptDownloads: true});
+const net = []; await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); });
+const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+await p.goto(FILE); await p.waitForTimeout(500); await p.selectOption('#langSel', 'en');
+await p.click('.navlist button[data-target="experiment"]');
+t('vizualizare activă', await p.isVisible('#experiment'));
+const st = await p.evaluate(() => ({a: _exStats.pGE(8, 10, 0.5), b: _exStats.pGE(10, 20, 0.25), w: _exStats.wilson(5, 10)}));
+t('binomial exact P(X>=8; 10, .5) = 56/1024', Math.abs(st.a - 56 / 1024) < 1e-9, st.a);
+t('P(X>=10; 20, .25) ≈ 0.0139', Math.abs(st.b - 0.01386) < 1e-4, st.b);
+t('Wilson 5/10', Math.abs(st.w[0] - 0.2366) < 2e-3);
+await p.fill('#exN', '5'); await p.click('#exStart'); await p.waitForTimeout(120); t('validare: 5 încercări respins', /10–100 trials/.test(await p.textContent('#exMsg')) && await p.isVisible('#exSetup'));
+// mod ecran, 4 poziții, 12 încercări; alegem mereu poziția 1
+await p.fill('#exN', '12'); await p.click('#exStart');
+t('configurarea se ascunde, apar 4 butoane', await p.isHidden('#exSetup') && (await p.$$('#exRun .ex-pick')).length === 4);
+t('ținta nu apare în DOM înainte de final', !/Target sequence|target is at position/i.test(await p.textContent('#exRun')) && !(await p.$$('#exRun .ex-target')).length);
+for (let i = 0; i < 12; i++) await p.click('#exRun .ex-pick >> nth=0');
+t('analiza apare după ultima încercare', (await p.$$('#exRun .ex-an')).length === 1);
+const an = await p.textContent('#exRun .ex-an');
+const seq = (/Target sequence: ([\d ]+)/.exec(an) || [])[1].trim().split(' ').map(Number); const hits = seq.filter(v => v === 1).length;
+t('numărul de reușite se potrivește cu secvența dezvăluită', new RegExp('Hits' + hits + ' / 12').test(an.replace(/\s/g, ' ').replace(/Hits\s*/, 'Hits')) || an.includes(hits + ' / 12'), [hits, an.slice(0, 150)]);
+t('secvența are 12 valori în 1..4', seq.length === 12 && seq.every(v => v >= 1 && v <= 4), seq);
+const pv = await p.evaluate(() => _exStats.pGE(+document.querySelector('#exRun .ex-dl dd').textContent.split(' / ')[0], 12, 0.25));
+t('p afișat = binomial exact', Math.abs(parseFloat((await p.textContent('#exRun .ex-dl')).match(/(\d\.\d{4})/g).pop()) - pv) < 6e-5 || /< 0.0001/.test(an), an);
+t('avertisment despre repetarea până iese', /repeat the experiment until it works/.test(an));
+t('verdict fără pretenții cauzale', !/proves (a|that) (energy|dowsing)/i.test(an));
+const [dl] = await Promise.all([p.waitForEvent('download'), p.click('#exJson')]); const js = JSON.parse(fs.readFileSync(await dl.path(), 'utf8'));
+t('export JSON complet', js.trials === 12 && js.target_sequence.length === 12 && js.picks.every(v => v === 1) && js.hits === hits, js);
+const [d2] = await Promise.all([p.waitForEvent('download'), p.click('#exCsv')]); t('export CSV 13 rânduri', fs.readFileSync(await d2.path(), 'utf8').trim().split(/\r\n/).length === 13);
+t('nimic salvat în localStorage', await p.evaluate(() => Object.keys(localStorage).every(k => !/exper|orb|ipotez/i.test(k))));
+await p.click('#exNew'); t('experiment nou: revine configurarea', await p.isVisible('#exSetup'));
+// mod asistent
+await p.selectOption('#exMode', 'helper'); await p.fill('#exK', '3'); await p.fill('#exN', '10'); await p.click('#exStart');
+t('asistent: ținta ascunsă implicit', /target is hidden/.test(await p.textContent('#exRun')));
+await p.click('#exReveal'); const tg = await p.textContent('#exRun .ex-target'); t('asistent: poziția afișată la cerere', /position [123]\./.test(tg), tg);
+const expected = +/position (\d)/.exec(tg)[1]; await p.click('#exReveal'); t('asistent: ascunde din nou', /hidden/.test(await p.textContent('#exRun .ex-target')));
+await p.click('#exFb'.replace('#exFb', '#exRun .ex-pick >> nth=' + (expected - 1))); 
+t('încercarea 2 din 10', /Trial 2 of 10/.test(await p.textContent('#exRun .ex-prog')));
+await p.click('#exRun >> text=Abandon'); t('renunțare: nimic salvat, revine configurarea', await p.isVisible('#exSetup'));
+await p.selectOption('#langSel', 'ro'); t('RO: titlu', /Testează-te orb/.test(await p.textContent('#experiment h2')));
+t('fără erori/CSP', errs.length === 0, errs); t('0 cereri de rețea', net.length === 0, net);
+await b.close(); console.log(`\n${ok} reușite, ${bad} eșuate`); process.exit(bad ? 1 : 0);
