@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.0.2 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** stabil; studiu descriptiv (fără afirmații terapeutice) · **Offline:** complet (fără cereri de rețea)
 
@@ -63,7 +63,13 @@ Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. P
 
 ## Panoul de dovezi: surse (2026-10-27)
 
-Secțiunea „Cercetarea științifică” începe acum cu un rezumat **„Ce spun dovezile (pe scurt)”** și un bloc **Surse** (8 limbi): Enright, *Naturwissenschaften* 1995;82:360-369; Enright, *Skeptical Inquirer* 1999;23(1); Betz, *J Sci Exploration* 1995;9(1)/9(2); Vogt & Hyman, *Water Witching U.S.A.*, 1979. URL-ul exact USGS și orice meta-analiză/recenzie sistematică sunt marcate „sursă de completat” (nu s-au găsit). Fără afirmații terapeutice.
+Secțiunea „Cercetarea științifică” începe acum cu un rezumat **„Ce spun dovezile (pe scurt)”** și un bloc **Surse** (8 limbi): Enright, *Naturwissenschaften* 1995;82:360-369; Enright, *Skeptical Inquirer* 1999;23(1):39-46; Betz, replica „Follow-up: dowsing successful” cu răspunsul lui Enright „The Whole Truth”, *Skeptical Inquirer* sept./oct. 1999:59-60; Betz, *J Sci Exploration* 1995;9(1)/9(2); Vogt & Hyman, *Water Witching U.S.A.*, 1979. Pagina USGS Water Science School „Water Dowsing” (usgs.gov/water-science-school/science/water-dowsing) este acum citată; meta-analiza/recenzia sistematică rămâne „sursă de completat” (nu s-au găsit).
+
+### Verificarea surselor (2026-10-27, 2.0.2)
+
+- **Confirmate**: Enright 1999, *Skeptical Inquirer* 23(1) (ian./feb.):39-46 și replica Betz / răspunsul lui Enright (sept./oct. 1999:59-60), din lista de referințe tipărită în acel schimb (cdn.centerforinquiry.org, p59.pdf). În acea listă titlul lui Enright apare ca „Testing dowsing”; subtitlul „the failure of the Munich experiments” folosit înainte nu a putut fi confirmat, deci aplicația citează acum doar titlul confirmat. Pagina USGS: titlul și adresa confirmate prin deschiderea ei.
+- **Neconfirmate**: Betz 1995, *J Sci Exploration* 9(1)/9(2): paginile nu au fost vizibile în nicio pagină deschisă (o referință Wikipedia dă doar „9 (1995)”). Lăsat ca atare, de reconfirmat.
+- Nu s-a găsit nicio meta-analiză sau recenzie sistematică despre radiestezie. Fără afirmații terapeutice.
 
 ## Istoric / Changelog
 
