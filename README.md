@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.1 · **Last updated:** 2026-10-27
+**Version:** 2.0.2 · **Last updated:** 2026-10-27
 
 **Status:** stable; descriptive study (no therapeutic claims) · **Offline:** complete (no network requests)
 
@@ -63,7 +63,13 @@ Download `index.html` and open it in a browser; it has no external dependencies.
 
 ## Evidence panel: sources (2026-10-27)
 
-The research section ("Cercetarea științifică") now opens with a **"What the evidence says (in short)"** summary and a **Sources** block (8 languages): Enright, *Naturwissenschaften* 1995;82:360-369; Enright, *Skeptical Inquirer* 1999;23(1); Betz, *J Sci Exploration* 1995;9(1)/9(2); Vogt & Hyman, *Water Witching U.S.A.*, 1979. USGS exact URL and any meta-analysis/systematic review are marked "source to be completed" (none found). No therapeutic claim.
+The research section ("Cercetarea științifică") now opens with a **"What the evidence says (in short)"** summary and a **Sources** block (8 languages): Enright, *Naturwissenschaften* 1995;82:360-369; Enright, *Skeptical Inquirer* 1999;23(1):39-46; Betz, rejoinder "Follow-up: dowsing successful" with Enright's reply "The Whole Truth", *Skeptical Inquirer* Sept./Oct. 1999:59-60; Betz, *J Sci Exploration* 1995;9(1)/9(2); Vogt & Hyman, *Water Witching U.S.A.*, 1979. USGS Water Science School, "Water Dowsing" (usgs.gov/water-science-school/science/water-dowsing) is now cited; a meta-analysis/systematic review is still marked "source to be completed" (none found).
+
+### Source check (2026-10-27, 2.0.2)
+
+- **Confirmed**: Enright 1999, *Skeptical Inquirer* 23(1) (Jan./Feb.):39-46 and the Betz rejoinder / Enright reply (Sept./Oct. 1999:59-60), both from the reference list printed in that exchange (cdn.centerforinquiry.org, p59.pdf). In that list the Enright title appears as "Testing dowsing"; the subtitle "the failure of the Munich experiments" used earlier could not be confirmed, so the app now cites the confirmed title only. USGS page: title and address confirmed by opening it.
+- **Not confirmed**: Betz 1995, *J Sci Exploration* 9(1)/9(2): the page numbers were not visible on any page I could open (a Wikipedia reference gives only "9 (1995)"). Left as is, to be reconfirmed.
+- No meta-analysis or systematic review of dowsing found. No therapeutic claim.
 
 ## History / Changelog
 
