@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil; studiu descriptiv (fără afirmații terapeutice) · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -58,6 +60,10 @@ Verificate în cod și în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are dependențe externe. Pe GitHub Pages funcționează identic.
+
+## Panoul de dovezi: surse (2026-10-27)
+
+Secțiunea „Cercetarea științifică” începe acum cu un rezumat **„Ce spun dovezile (pe scurt)”** și un bloc **Surse** (8 limbi): Enright, *Naturwissenschaften* 1995;82:360-369; Enright, *Skeptical Inquirer* 1999;23(1); Betz, *J Sci Exploration* 1995;9(1)/9(2); Vogt & Hyman, *Water Witching U.S.A.*, 1979. URL-ul exact USGS și orice meta-analiză/recenzie sistematică sunt marcate „sursă de completat” (nu s-au găsit). Fără afirmații terapeutice.
 
 ## Istoric / Changelog
 

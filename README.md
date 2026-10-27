@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable; descriptive study (no therapeutic claims) · **Offline:** complete (no network requests)
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -58,6 +60,10 @@ Verified in code and in the browser:
 ## Running locally / offline
 
 Download `index.html` and open it in a browser; it has no external dependencies. On GitHub Pages it works identically.
+
+## Evidence panel: sources (2026-10-27)
+
+The research section ("Cercetarea științifică") now opens with a **"What the evidence says (in short)"** summary and a **Sources** block (8 languages): Enright, *Naturwissenschaften* 1995;82:360-369; Enright, *Skeptical Inquirer* 1999;23(1); Betz, *J Sci Exploration* 1995;9(1)/9(2); Vogt & Hyman, *Water Witching U.S.A.*, 1979. USGS exact URL and any meta-analysis/systematic review are marked "source to be completed" (none found). No therapeutic claim.
 
 ## History / Changelog
 
