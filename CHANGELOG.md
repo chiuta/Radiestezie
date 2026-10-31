@@ -1,5 +1,9 @@
 # Jurnal de modificări — Radiestezie
 
+## 2.0.3 — 2026-10-31 (anterior: 2.0.2)
+
+- Avertismentul („Material educativ și cultural… fără validare științifică… nu pentru diagnostic sau tratament… urgențe 112”) apare acum și **la începutul conținutului**, nu doar la sfârșitul paginii (era la ~5000 px de început pe telefon). Același text și aceeași cheie de traducere (8 limbi); nicio altă schimbare.
+
 ## 2.0.2 — 2026-10-27 (anterior: 2.0.1)
 
 Doar text (surse confirmate).
