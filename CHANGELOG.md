@@ -1,5 +1,11 @@
 # Jurnal de modificări — Radiestezie
 
+## 2.0.3 — 2026-11-02 (reîmprospătare kit)
+
+- Nou (kit): **Sincronizare între dispozitive** (`FFF.sync`) — în dialogul «Transparență» (clic pe versiune → Copie de siguranță): conectezi două dispozitive direct (WebRTC, cod/QR, fără server și fără cont) și își schimbă datele aplicației; cea mai recentă valoare câștigă, secretele (chei API, parole) nu se trimit, ștergerile nu se propagă. Aplicarea trece prin importul kitului (confirmare, chei permise, rollback).
+- Nou (kit): **Istoric local — «mașina timpului»** (`FFF.history`) — instantanee automate ale datelor (IndexedDB, fără secrete), diferență față de starea curentă și restaurare reversibilă; «Șterge datele aplicației» șterge și istoricul.
+- Module adăugate: `qr`, `p2p`, `sync`, `history` (+~140 KB). Versiunea aplicației nu se schimbă.
+
 ## 2.0.3 — 2026-10-31 (anterior: 2.0.2)
 
 - Avertismentul („Material educativ și cultural… fără validare științifică… nu pentru diagnostic sau tratament… urgențe 112”) apare acum și **la începutul conținutului**, nu doar la sfârșitul paginii (era la ~5000 px de început pe telefon). Același text și aceeași cheie de traducere (8 limbi); nicio altă schimbare.

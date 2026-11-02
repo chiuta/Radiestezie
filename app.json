@@ -15,8 +15,8 @@
   "storageKeys": [
     "radiestezie.limba"
   ],
-  "sizeBytes": 1829015,
-  "sha256": "706f9c0588e1931b32333e8c55c4e0b2e906340b367a5a7fdf170ac3a05f68a5",
+  "sizeBytes": 1969449,
+  "sha256": "7da7fd2e82b03197914a2de2760b19f8ba28d650ee73ebe33da43449510dfa96",
   "csp": {
     "present": true,
     "directives": {
@@ -54,7 +54,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -64,7 +68,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false
