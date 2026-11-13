@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "radiestezie",
   "name": "Radiestezia — Curs în 18 Niveluri",
-  "version": "2.0.8",
-  "updated": "2026-11-11",
+  "version": "2.0.9",
+  "updated": "2026-11-13",
   "description": "Curs offline despre radiestezie în 18 niveluri, cu context internațional, glosar și jurnal de practică. Material educativ: radiestezia nu are validare științifică.",
   "egress": [],
   "permissions": [
@@ -15,8 +15,8 @@
   "storageKeys": [
     "radiestezie.limba"
   ],
-  "sizeBytes": 2009982,
-  "sha256": "8fb627f8852dcda433ea9059854d49f5403081477312a224ae4210398b79cf8a",
+  "sizeBytes": 2023559,
+  "sha256": "66a21b77e93bf293fb28ab2d0a3ae06b67d25592c4d6b4ea86be633606b17c76",
   "csp": {
     "present": true,
     "directives": {
@@ -55,6 +55,7 @@
       "dialog",
       "exit",
       "view",
+      "ux",
       "label",
       "bundle",
       "qr",
@@ -64,13 +65,14 @@
     ]
   },
   "kit": {
-    "version": "1.4.0",
+    "version": "1.5.0",
     "modules": [
       "core",
       "store",
       "dialog",
       "exit",
       "view",
+      "ux",
       "label",
       "bundle",
       "qr",
