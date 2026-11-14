@@ -10,18 +10,19 @@
     "clipboard",
     "serviceWorker",
     "localStorage",
-    "Web Crypto"
+    "Web Crypto",
+    "WebGL"
   ],
   "storageKeys": [
     "radiestezie.limba"
   ],
-  "sizeBytes": 2023559,
-  "sha256": "66a21b77e93bf293fb28ab2d0a3ae06b67d25592c4d6b4ea86be633606b17c76",
+  "sizeBytes": 2075202,
+  "sha256": "7e2526cd2a70bd78944a3d1f7acd73624c6812f277ce20761ea68aeb2e44f130",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "'self' sha256×4",
+      "script-src": "'self' sha256×5",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data:",
       "manifest-src": "'self' data:",
