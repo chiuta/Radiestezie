@@ -1,5 +1,10 @@
 # Jurnal de modificări — Radiestezie
 
+## 2.1.3 — 2026-11-19
+
+- La 320 px, în germană, cele două carduri de introducere stăteau pe două coloane `1fr` cu stil în linie, iar un cuvânt lung le lărgea la ~362 px și pagina derula orizontal; coloanele sunt acum `minmax(0, 1fr)`, iar cardurile rup cuvintele prea lungi (constatat de bateria adversarială din 19 noiembrie 2026, verificat înainte/după: 362 → 320 px în germană)
+- Ortografie: „radiestezişti” / „radiesteziştilor” (cu sedilă) → „radiesteziști” / „radiesteziștilor” (cu virgulă dedesubt), 17 apariții în textul românesc
+
 ## 2.1.2 — 2026-11-17
 
 - Compatibilitate cu browsere mai vechi (Chrome/Edge 55+, Firefox 52+, Safari 10.1+/iOS 10.3+): kitul 1.8.0 aduce stratul de compatibilitate (rezerve pentru API-urile care lipsesc în motoarele vechi), iar sintaxa JavaScript mai nouă decât ES2017 a fost înlocuită cu forme echivalente acolo unde exista; expresiile regulate noi și `import()` trec prin rezerve. Fără modificări de funcționalitate intenționate. Verificat cu parser ES2017 și într-un motor vechi simulat, nu pe dispozitive reale.
